@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jokenpô Arena</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/mobile.css">
+</head>
+<body>
+    <main class="Game">
+        <section class="placar">
+
+            <div class="jogador">
+                <h3 class="cor-azul">Jogador</h3>
+
+                <div class="box-pontos" id="placarJogador">
+                    <span class="pontos">.</span>
+                    <span class="pontos">.</span>
+                    <span class="pontos">.</span>
+                </div>
+            </div>
+
+            <div class="pc">
+                <h3 class="cor-vermelha">PC</h3>
+
+                <div class="box-pontos" id="placarpc">
+                    <span class="pontos">.</span>
+                    <span class="pontos">.</span>
+                    <span class="pontos">.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="painel-arena">
+            <div class="display">
+                <div class="display-jogador" id="displayJogador">
+                    
+                </div>
+
+                <p class="texto-rodada" id="textoRodada">Vs</p>
+
+                <div class="display-pc" id="displayPc">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="controles">
+            <button class="opcao-btn" id="btnPedra">pedra 💎</button>
+            <button class="opcao-btn" id="btnPapel">papel 📜</button>
+            <button class="opcao-btn" id="btnTesoura">tesoura ✂️</button>
+        </section>
+
+        <section class="tela-disputa">
+            <h2 id="resultadoFinal">Resultado da partida!</h2>
+            <button class="reiniciar-jogo" id="btnReiniciar" disabled>REINICIAR</button>
+        </section>
+    </main>
+    <script src="JS/script.js" defer></script>
+</body>
+</html>
