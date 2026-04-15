@@ -162,3 +162,23 @@ body::before {
     color: var(--cor2);
     box-shadow: 0px 0px 20px;
 }
+
+#musicaBtn {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    border-radius: 5px;
+}
+
+#musicaBtn:hover {
+    background: #fff;
+    color: var(--cor2);
+    box-shadow: 0px 0px 20px; 
+}
+

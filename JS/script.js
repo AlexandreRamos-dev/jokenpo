@@ -6,6 +6,9 @@
     let pontosJogador = 0
     let pontospc = 0
     const opcao = ['pedra', 'papel', 'tesoura']
+    const musicaBtn = document.querySelector('#musicaBtn')
+    const musica = document.querySelector('#musicaFundo')
+    let musicaTocando = false
 
 // Botões de escolha
     const btnPedra = document.querySelector('#btnPedra')
@@ -19,8 +22,11 @@
     btnTesoura.addEventListener('click', () => jogar('tesoura'))
     btnReiniciar.addEventListener('click', reiniciar)
 
+    musicaBtn.addEventListener('click', iniciarMusica)
+
 // Função para jogar
     function jogar(escolhaJogador) {
+
         let escolhapc = opcao[Math.floor(Math.random() * opcao.length)]
 
         eventosImg(escolhaJogador, escolhapc)
@@ -41,25 +47,25 @@
 
     // Escolha de img do jogador
         if(escolhaJogador == 'pedra') {
-            imgJogador.setAttribute('src', '../imagens/pedra.png')
+            imgJogador.setAttribute('src', 'imagens/pedra.png')
             displayJogador.appendChild(imgJogador)
         } else if(escolhaJogador == 'papel') {
-            imgJogador.setAttribute('src', '../imagens/papel.png')
+            imgJogador.setAttribute('src', 'imagens/papel.png')
             displayJogador.appendChild(imgJogador)
         } else {
-            imgJogador.setAttribute('src', '../imagens/tesoura.png')
+            imgJogador.setAttribute('src', 'imagens/tesoura.png')
             displayJogador.appendChild(imgJogador)
         }
 
     // Escolha de img do pc
         if(escolhapc == 'pedra') {
-            imgPc.setAttribute('src', '../imagens/pedra.png')
+            imgPc.setAttribute('src', 'imagens/pedra.png')
             displayPc.appendChild(imgPc)
         } else if(escolhapc == 'papel') {
-            imgPc.setAttribute('src', '../imagens/papel.png')
+            imgPc.setAttribute('src', 'imagens/papel.png')
             displayPc.appendChild(imgPc)
         } else {
-            imgPc.setAttribute('src', '../imagens/tesoura.png')
+            imgPc.setAttribute('src', 'imagens/tesoura.png')
             displayPc.appendChild(imgPc)
         }
     }
@@ -147,6 +153,7 @@
 // Reiniciar partida
     function reiniciar() {
         let textoRodada = document.querySelector('#textoRodada')
+        let resultadoFinal = document.querySelector('#resultadoFinal')
         textoRodada.textContent = 'Vs'
         textoRodada.style.color = '#9dd341'
         // Limpar display
@@ -164,6 +171,20 @@
             btnPapel.disabled = false
             btnTesoura.disabled = false
             btnReiniciar.disabled = true
+            musica.currentTime = 0
 
             AtualizaPlacar()
+    }
+
+    function iniciarMusica() {
+        if(!musicaTocando) {
+            musicaBtn.textContent = 'Pause ⏸️'
+            musica.play()
+            musica.volume = 0.3
+            musicaTocando = true
+        } else {
+            musicaBtn.textContent = 'Play ▶️'
+            musica.pause()
+            musicaTocando = false
+        }
     }
